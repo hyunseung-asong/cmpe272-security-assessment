@@ -1,0 +1,14 @@
+venv/
+.venv/
+__pycache__/
+*.pyc
+secrets/
+bad-secrets/
+received/
+test_4gb.bin
+test_small.bin
+*.part
+*.failed
+*.exe
+*.log
+*.err
