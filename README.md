@@ -124,6 +124,8 @@ Observed 4GB loopback throughput on this machine:
 - mTLS: sender `452.04 MB/s`, receiver `452.12 MB/s`.
 - Envelope: sender `472.51 MB/s`, receiver `450.91 MB/s`.
 
+The sender and receiver numbers are not always identical because they time slightly different work. The sender mostly measures reading the input file, encrypting or wrapping bytes, and handing them to the OS. The receiver also decrypts/verifies chunks, hashes plaintext, writes the output file, and flushes it before accepting the transfer. The envelope approach has a slightly larger gap because the receiver checks each signed setup message and every AES-GCM chunk before finalizing the file.
+
 Negative identity checks were also run:
 
 - mTLS with a different generated CA failed the TLS handshake with `CERTIFICATE_VERIFY_FAILED` / `unknown ca`.
